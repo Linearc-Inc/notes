@@ -2,7 +2,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 
-set(SDK_ROOT "${CMAKE_BINARY_DIR}/SDK/")
+set(SDK_ROOT "${CMAKE_BINARY_DIR}/ultra/")
 set(ULTRALIGHT_INCLUDE_DIR "${SDK_ROOT}/include")
 set(ULTRALIGHT_BINARY_DIR "${SDK_ROOT}/bin")
 set(ULTRALIGHT_INSPECTOR_DIR "${SDK_ROOT}/inspector")
@@ -34,7 +34,7 @@ endif ()
 set(S3_DOMAIN ".sfo2.cdn.digitaloceanspaces.com")
 
 ExternalProject_Add(UltralightSDK
-  URL https://ultralight-sdk${S3_DOMAIN}/ultralight-sdk-latest-${PLATFORM}-${ARCHITECTURE}.7z
+  #URL https://ultralight-sdk${S3_DOMAIN}/ultralight-sdk-latest-${PLATFORM}-${ARCHITECTURE}.7z
   SOURCE_DIR "${SDK_ROOT}"
   BUILD_IN_SOURCE 1
   CONFIGURE_COMMAND ""
