@@ -33,14 +33,28 @@ endif ()
 
 set(S3_DOMAIN ".sfo2.cdn.digitaloceanspaces.com")
 
-ExternalProject_Add(UltralightSDK
-  #URL https://ultralight-sdk${S3_DOMAIN}/ultralight-sdk-latest-${PLATFORM}-${ARCHITECTURE}.7z
-  SOURCE_DIR "${SDK_ROOT}"
-  BUILD_IN_SOURCE 1
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND ""
-  INSTALL_COMMAND ""
-)
+
+
+if(NOT EXISTS "${SDK_ROOT}")
+  ExternalProject_Add(UltralightSDK
+    URL https://ultralight-sdk${S3_DOMAIN}/ultralight-sdk-latest-${PLATFORM}-${ARCHITECTURE}.7z
+    SOURCE_DIR "${SDK_ROOT}"
+    BUILD_IN_SOURCE 1
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+  )
+
+else()
+
+  ExternalProject_Add(UltralightSDK
+    SOURCE_DIR "${SDK_ROOT}"
+    BUILD_IN_SOURCE 1
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+  )
+endif()
 
 MACRO(ADD_APP source_list)
   set(APP_NAME ${CMAKE_PROJECT_NAME})

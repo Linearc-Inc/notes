@@ -5,7 +5,7 @@
 
 MyApp::MyApp() {
   app_ = App::Create();
-  window_ = Window::Create(app_->main_monitor(), WINDOW_WIDTH, WINDOW_HEIGHT, true, kWindowFlags_Titled);  
+  window_ = Window::Create(app_->main_monitor(), WINDOW_WIDTH, WINDOW_HEIGHT, true, kWindowFlags_Borderless);  
   app_->set_window(*window_.get());
   overlay_ = Overlay::Create(*window_.get(), 1, 1, 0, 0);
   OnResize(window_->width(), window_->height());
@@ -13,8 +13,7 @@ MyApp::MyApp() {
   app_->set_listener(this);
   window_->set_listener(this);
   overlay_->view()->set_load_listener(this);
-  overlay_->view()->set_view_listener(this);
-  
+  overlay_->view()->set_view_listener(this); 
 }
 
 MyApp::~MyApp() {
@@ -43,6 +42,7 @@ void MyApp::OnFinishLoading(ultralight::View* caller, uint64_t frame_id, bool is
 void MyApp::OnDOMReady(ultralight::View* caller, uint64_t frame_id, bool is_main_frame, const String& url) {
   std::cout << "/* dom ready */" << std::endl;
 
+  caller->EvaluateScript("ShowMessage('Afasha')");
 }
 
 void MyApp::OnChangeCursor(ultralight::View* caller, Cursor cursor) {
