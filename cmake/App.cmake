@@ -2,7 +2,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 
-set(SDK_ROOT "${CMAKE_BINARY_DIR}/ultra/")
+set(SDK_ROOT "${CMAKE_BINARY_DIR}/ultra")
 set(ULTRALIGHT_INCLUDE_DIR "${SDK_ROOT}/include")
 set(ULTRALIGHT_BINARY_DIR "${SDK_ROOT}/bin")
 set(ULTRALIGHT_INSPECTOR_DIR "${SDK_ROOT}/inspector")

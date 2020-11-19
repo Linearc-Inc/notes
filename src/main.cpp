@@ -1,6 +1,6 @@
-#include "note.h"
+#include "Application.h"
 int main() {
-  MyApp app;
+  Application app;
   app.Run();
   return 0;
 }
